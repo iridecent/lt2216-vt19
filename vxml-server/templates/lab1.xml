@@ -18,6 +18,7 @@
   <var name="return"/>
   <var name="oneway"/>
   <var name="confirmoneway"/>
+  <var name="confirmreturn"/>
 
   <!-- State machine -->
   <form id="welcome">
@@ -75,7 +76,7 @@
     </field>
     <filled>
       <assign name="date" expr="dateField"/>
-      <goto next="#ask" />
+      <goto next="#askOneway"/>
     </filled>
   </form>
 
@@ -111,28 +112,46 @@
     </field>
     <filled>
       <assign name="return" expr="returnField"/>
-      <goto next="#askOneway" />
+      <goto next="#askConfirmreturn"/>
     </filled>
   </form>
 
-
-
-  <form id="askReturn">
-    <field name="returnField">
+  <form id="askConfirmoneway">
+    <field name="cofirmonewayField">
       <prompt>
-        What date do you want to return?
+        Do you want to travel from <value expr="from"/> to <value expr="to"/> on <value expr="date"/>?
       </prompt>
-      <option>monday</option>
-      <option>tuesday</option>
-      <option>wednesday</option>
-      <option>thursday</option>
-      <option>friday</option>
-      <option>saturday</option>
-      <option>sunday</option>
+      <option>yes</option>
+      <option>no</option>
     </field>
     <filled>
-      <assign name="return" expr="returnField"/>
-      <goto next ="#ask"/>
+      <assign name="confirmoneway" expr="confirmonewayField"/>
+      <if cond="confirmoneway == 'yes'"/>
+        <promt>
+          Your flight has been booked.
+        </promt>
+      <else/>
+        <goto next ="#askFrom"/>
+    </filled>
+  </form>
+
+   <form id="askConfirmreturn">
+    <field name="cofirmreturnField">
+      <prompt>
+        Do you want to travel from <value expr="from"/> to <value expr="to"/> on <value expr="date"/> returning
+        on <value expr="return"/>?
+      </prompt>
+      <option>yes</option>
+      <option>no</option>
+    </field>
+    <filled>
+      <assign name="confirmreturn" expr="confirreturnField"/>
+      <if cond="confirmreturn == 'yes'"/>
+        <promt>
+          Your flight has been booked.
+        </promt>
+      <else/>
+        <goto next ="#askFrom"/>
     </filled>
   </form>
 </vxml>
