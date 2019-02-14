@@ -14,7 +14,7 @@
   <!-- Data model -->
   <var name="from" />
   <var name="to" />
-  <var name ="date" />
+  <var name="date" />
   <var name="rturn" />
   <var name="oneway" />
   <var name="confirmoneway" />
