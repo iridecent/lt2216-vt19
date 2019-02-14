@@ -34,7 +34,7 @@
   <form id="askFrom">
     <field name="fromField">
       <prompt>
-        What city are you leaving from?
+        What city are you leaving from? Thanks.
       </prompt>
       <option>london</option>
       <option>paris</option>
