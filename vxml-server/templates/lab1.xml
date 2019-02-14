@@ -14,6 +14,8 @@
   <!-- Data model -->
   <var name="from" />
   <var name="to" />
+  <var name ="date"/>
+  <var name="return"/>
 
   <!-- State machine -->
   <form id="welcome">
@@ -51,7 +53,67 @@
       <option>new york</option>
     </field>
     <filled>
+      <assign name="to" expr="toField"/>
       <goto next="#askDate" />
+    </filled>
+  </form>
+
+  <form id="askDate">
+    <field name="dateField">
+      <prompt>
+        What date do you want to leave?
+      </prompt>
+      <option>monday</option>
+      <option>tuesday</option>
+      <option>wednesday</option>
+      <option>thursday</option>
+      <option>friday</option>
+      <option>saturday</option>
+      <option>sunday</option>
+    </field>
+    <filled>
+      <assign name="date" expr="dateField"/>
+      <goto next="#ask" />
+    </filled>
+  </form>
+
+  <form id="ask">
+    <field name="dateField">
+      <prompt>
+        What date do you want to leave?
+      </prompt>
+      <option>monday</option>
+      <option>tuesday</option>
+      <option>wednesday</option>
+      <option>thursday</option>
+      <option>friday</option>
+      <option>saturday</option>
+      <option>sunday</option>
+    </field>
+    <filled>
+      <assign name="date" expr="dateField"/>
+      <goto next="#ask" />
+    </filled>
+  </form>
+
+
+
+  <form id="askReturn">
+    <field name="returnField">
+      <prompt>
+        What date do you want to return?
+      </prompt>
+      <option>monday</option>
+      <option>tuesday</option>
+      <option>wednesday</option>
+      <option>thursday</option>
+      <option>friday</option>
+      <option>saturday</option>
+      <option>sunday</option>
+    </field>
+    <filled>
+      <assign name="return" expr="returnField"/>
+      <goto next ="#ask"/>
     </filled>
   </form>
 </vxml>
