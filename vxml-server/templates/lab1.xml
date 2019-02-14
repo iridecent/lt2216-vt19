@@ -16,6 +16,8 @@
   <var name="to" />
   <var name ="date"/>
   <var name="return"/>
+  <var name="oneway"/>
+  <var name="confirmoneway"/>
 
   <!-- State machine -->
   <form id="welcome">
@@ -77,10 +79,27 @@
     </filled>
   </form>
 
-  <form id="ask">
-    <field name="dateField">
+  <form id="askOneway">
+    <field name="onewayField">
       <prompt>
-        What date do you want to leave?
+        Is it a one-way trip?
+      </prompt>
+      <option>yes</option>
+      <option>no</option>
+    </field>
+    <filled>
+      <assign name="oneway" expr="onewayField"/>
+      <if cond="oneway == 'yes'"/>
+        <goto next="#askConfirmoneway"/>
+      <else/>
+        <goto next="#askReturn"/>
+    </filled>
+  </form>
+
+  <form id="askReturn">
+    <field name="returnField">
+      <prompt>
+        What date do you want to return?
       </prompt>
       <option>monday</option>
       <option>tuesday</option>
@@ -91,8 +110,8 @@
       <option>sunday</option>
     </field>
     <filled>
-      <assign name="date" expr="dateField"/>
-      <goto next="#ask" />
+      <assign name="return" expr="returnField"/>
+      <goto next="#askOneway" />
     </filled>
   </form>
 
