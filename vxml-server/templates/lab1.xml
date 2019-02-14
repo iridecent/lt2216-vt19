@@ -14,11 +14,11 @@
   <!-- Data model -->
   <var name="from" />
   <var name="to" />
-  <var name ="date"/>
-  <var name="return"/>
-  <var name="oneway"/>
-  <var name="confirmoneway"/>
-  <var name="confirmreturn"/>
+  <var name ="date" />
+  <var name="rturn" />
+  <var name="oneway" />
+  <var name="confirmoneway" />
+  <var name="confirmrturn" />
 
   <!-- State machine -->
   <form id="welcome">
@@ -56,7 +56,7 @@
       <option>new york</option>
     </field>
     <filled>
-      <assign name="to" expr="toField"/>
+      <assign name="to" expr="toField" />
       <goto next="#askDate" />
     </filled>
   </form>
@@ -75,8 +75,8 @@
       <option>sunday</option>
     </field>
     <filled>
-      <assign name="date" expr="dateField"/>
-      <goto next="#askOneway"/>
+      <assign name="date" expr="dateField" />
+      <goto next="#askOneway" />
     </filled>
   </form>
 
@@ -89,18 +89,18 @@
       <option>no</option>
     </field>
     <filled>
-      <assign name="oneway" expr="onewayField"/>
-      <if cond="oneway == 'yes'"/>
-        <goto next="#askConfirmoneway"/>
+      <assign name="oneway" expr="onewayField" />
+      <if cond="oneway == 'yes'" />
+        <goto next="#askConfirmoneway" />
       <else/>
-        <goto next="#askReturn"/>
+        <goto next="#askRturn" />
     </filled>
   </form>
 
-  <form id="askReturn">
-    <field name="returnField">
+  <form id="askRturn">
+    <field name="rturnField">
       <prompt>
-        What date do you want to return?
+        What date do you want to rturn?
       </prompt>
       <option>monday</option>
       <option>tuesday</option>
@@ -111,8 +111,8 @@
       <option>sunday</option>
     </field>
     <filled>
-      <assign name="return" expr="returnField"/>
-      <goto next="#askConfirmreturn"/>
+      <assign name="rturn" expr="rturnField" />
+      <goto next="#askConfirmrturn" />
     </filled>
   </form>
 
@@ -125,28 +125,28 @@
       <option>no</option>
     </field>
     <filled>
-      <assign name="confirmoneway" expr="confirmonewayField"/>
-      <if cond="confirmoneway == 'yes'"/>
+      <assign name="confirmoneway" expr="confirmonewayField" />
+      <if cond="confirmoneway == 'yes'" />
         <promt>
           Your flight has been booked.
         </promt>
       <else/>
-        <goto next ="#askFrom"/>
+        <goto next ="#askFrom" />
     </filled>
   </form>
 
-   <form id="askConfirmreturn">
-    <field name="cofirmreturnField">
+   <form id="askConfirmrturn">
+    <field name="cofirmrturnField">
       <prompt>
         Do you want to travel from <value expr="from"/> to <value expr="to"/> on <value expr="date"/> returning
-        on <value expr="return"/>?
+        on <value expr="rturn"/>?
       </prompt>
       <option>yes</option>
       <option>no</option>
     </field>
     <filled>
-      <assign name="confirmreturn" expr="confirreturnField"/>
-      <if cond="confirmreturn == 'yes'"/>
+      <assign name="confirmrturn" expr="confirrturnField"/>
+      <if cond="confirmrturn == 'yes'"/>
         <promt>
           Your flight has been booked.
         </promt>
