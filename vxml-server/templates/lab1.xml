@@ -163,6 +163,7 @@
 
   <form id="askConfirmoneway">
     <field name="cofirmonewayField">
+      <property name="bargein" value="false"/>
       <prompt>
         Do you want to travel from <value expr="from"/> to <value expr="to"/> on <value expr="date"/>?
       </prompt>
