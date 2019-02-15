@@ -5,16 +5,7 @@
 
   <!-- disable bargein for this dialog -->
   <property name="bargein" value="false"/>
-
-  <nomatch>
-    I didn't understand.
-    <reprompt/>
-  </nomatch>
-
-  <noinput>
-    You didn't say anything.
-    <reprompt/>
-  </noinput>
+  
 
   <!-- Data model -->
   <var name="from" />
@@ -83,6 +74,7 @@
           You can't fly to the same city you are leaving from.
         </prompt>
         <clear namelist="to"/>
+        <reprompt/>
       <else/>
         <goto next="#askDate" />
     </filled>
