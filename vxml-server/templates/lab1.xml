@@ -79,9 +79,10 @@
     <filled>
       <assign name="to" expr="toField" />
       <if cond="from == to"/>
-        <promt>
+        <prompt>
           You can't fly to the same city you are leaving from.
-        </promt>
+        </prompt>
+        <clear namelist="to"/>
       <else/>
         <goto next="#askDate" />
     </filled>
@@ -213,7 +214,7 @@
       </noinput>
     </field>
     <filled>
-      <assign name="confirmrturn" expr="confirrturnField"/>
+      <assign name="confirmrturn" expr="confirmrturnField"/>
       <if cond="confirmrturn == 'yes'"/>
         <promt>
           Your flight has been booked.
