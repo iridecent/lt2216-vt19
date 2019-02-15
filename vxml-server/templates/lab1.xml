@@ -73,7 +73,12 @@
     </field>
     <filled>
       <assign name="to" expr="toField" />
-      <goto next="#askDate" />
+      <if cond="from == to"/>
+        <promt>
+          You can't fly to the same city you are leaving from.
+        </promt>
+      <else/>
+        <goto next="#askDate" />
     </filled>
   </form>
 
@@ -111,6 +116,14 @@
       </prompt>
       <option>yes</option>
       <option>no</option>
+      <nomatch>
+        I didn't understand. You can say either yes or no.
+        <reprompt/>
+      </nomatch>
+      <noinput>
+        You didn't say anything. Please say yes or no.
+        <reprompt/>
+      </noinput>
     </field>
     <filled>
       <assign name="oneway" expr="onewayField" />
@@ -134,6 +147,14 @@
       <option>saturday</option>
       <option>sunday</option>
     </field>
+    <nomatch>
+        I didn't understand. You can say any weekday from Monday to Sunday.
+        <reprompt/>
+      </nomatch>
+      <noinput>
+        You didn't say anything. Please say Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
+        <reprompt/>
+      </noinput>
     <filled>
       <assign name="rturn" expr="rturnField" />
       <goto next="#askConfirmrturn" />
@@ -147,6 +168,14 @@
       </prompt>
       <option>yes</option>
       <option>no</option>
+      <nomatch>
+        I didn't understand. You can say either yes or no.
+        <reprompt/>
+      </nomatch>
+      <noinput>
+        You didn't say anything. Please say yes or no.
+        <reprompt/>
+      </noinput>
     </field>
     <filled>
       <assign name="confirmoneway" expr="confirmonewayField" />
@@ -167,6 +196,14 @@
       </prompt>
       <option>yes</option>
       <option>no</option>
+      <nomatch>
+        I didn't understand. You can say either yes or no.
+        <reprompt/>
+      </nomatch>
+      <noinput>
+        You didn't say anything. Please say yes or no.
+        <reprompt/>
+      </noinput>
     </field>
     <filled>
       <assign name="confirmrturn" expr="confirrturnField"/>
