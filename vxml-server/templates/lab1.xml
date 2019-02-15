@@ -87,6 +87,7 @@
       <prompt>
         What date do you want to leave?
       </prompt>
+      <option>tomorrow</option>
       <option>monday</option>
       <option>tuesday</option>
       <option>wednesday</option>
@@ -95,11 +96,11 @@
       <option>saturday</option>
       <option>sunday</option>
       <nomatch>
-        I didn't understand. You can say any weekday from Monday to Sunday.
+        I didn't understand. You can say tomorrow or any weekday from Monday to Sunday.
         <reprompt/>
       </nomatch>
       <noinput>
-        You didn't say anything. Please say Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
+        You didn't say anything. Please say tomorrow, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
         <reprompt/>
       </noinput>
     </field>
@@ -139,6 +140,7 @@
       <prompt>
         What date do you want to rturn?
       </prompt>
+      <option>tomorrow</option>
       <option>monday</option>
       <option>tuesday</option>
       <option>wednesday</option>
@@ -148,11 +150,11 @@
       <option>sunday</option>
     </field>
     <nomatch>
-        I didn't understand. You can say any weekday from Monday to Sunday.
+        I didn't understand. You can say tomorrow or any weekday from Monday to Sunday.
         <reprompt/>
       </nomatch>
       <noinput>
-        You didn't say anything. Please say Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
+        You didn't say anything. Please say tomorrow, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
         <reprompt/>
       </noinput>
     <filled>
@@ -162,7 +164,7 @@
   </form>
 
   <form id="askConfirmoneway">
-    <field name="cofirmonewayField">
+    <field name="confirmonewayField">
       <property name="bargein" value="false"/>
       <prompt>
         Do you want to travel from <value expr="from"/> to <value expr="to"/> on <value expr="date"/>?
@@ -217,3 +219,5 @@
     </filled>
   </form>
 </vxml>
+
+
