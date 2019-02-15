@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
-  
+
+
+  <!-- disable bargein for this dialog -->
+  <property name="bargein" value="false"/>
+
+  <nomatch>
+    I didn't understand.
+    <reprompt/>
+  </nomatch>
+
+  <noinput>
+    You didn't say anything.
+    <reprompt/>
+  </noinput>
+
   <!-- Data model -->
   <var name="from" />
   <var name="to" />
@@ -12,7 +26,6 @@
   <var name="confirmrturn" />
 
   <!-- State machine -->
-  <property name="bargein" value="false"/>
   <form id="welcome">
     <block>
       <prompt>
