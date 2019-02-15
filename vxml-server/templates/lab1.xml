@@ -56,7 +56,7 @@
 
   <form id="askTo">
     <field name="toField">
-      <prompt>
+      <prompt timeout="8s">
         Where are you going?
       </prompt>
       <option>london</option>
