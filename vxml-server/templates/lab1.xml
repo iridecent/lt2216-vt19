@@ -21,6 +21,7 @@
   <var name="confirmrturn" />
 
   <!-- State machine -->
+  <property name="bargein" value="false"/>
   <form id="welcome">
     <block>
       <prompt>
@@ -165,7 +166,6 @@
 
   <form id="askConfirmoneway">
     <field name="confirmonewayField">
-      <property name="bargein" value="false"/>
       <prompt>
         Do you want to travel from <value expr="from"/> to <value expr="to"/> on <value expr="date"/>?
       </prompt>
