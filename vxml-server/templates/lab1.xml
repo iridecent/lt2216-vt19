@@ -196,7 +196,7 @@
   </form>
 
    <form id="askConfirmrturn">
-    <field name="cofirmrturnField">
+    <field name="confirmrturnField">
       <prompt>
         Do you want to travel from <value expr="from"/> to <value expr="to"/> on <value expr="date"/> returning
         on <value expr="rturn"/>?
