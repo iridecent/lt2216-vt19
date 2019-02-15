@@ -34,11 +34,19 @@
   <form id="askFrom">
     <field name="fromField">
       <prompt>
-        What city are you leaving from? Thanks.
+        What city are you leaving from?
       </prompt>
       <option>london</option>
       <option>paris</option>
       <option>new york</option>
+      <nomatch>
+        I didn't understand. You can say London, Paris or New York.
+        <reprompt/>
+      </nomatch>
+      <noinput>
+        You didn't say anything. Please say London, Paris or New York.
+        <reprompt/>
+      </noinput>
     </field>
     <filled>
       <assign name="from" expr="fromField" />
@@ -54,6 +62,14 @@
       <option>london</option>
       <option>paris</option>
       <option>new york</option>
+      <nomatch>
+        I didn't understand. You can say London, Paris or New York.
+        <reprompt/>
+      </nomatch>
+      <noinput>
+        You didn't say anything. Please say London, Paris or New York.
+        <reprompt/>
+      </noinput>
     </field>
     <filled>
       <assign name="to" expr="toField" />
@@ -73,6 +89,14 @@
       <option>friday</option>
       <option>saturday</option>
       <option>sunday</option>
+      <nomatch>
+        I didn't understand. You can say any weekday from Monday to Sunday.
+        <reprompt/>
+      </nomatch>
+      <noinput>
+        You didn't say anything. Please say Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.
+        <reprompt/>
+      </noinput>
     </field>
     <filled>
       <assign name="date" expr="dateField" />
