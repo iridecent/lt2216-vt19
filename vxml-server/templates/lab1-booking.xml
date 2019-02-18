@@ -182,9 +182,9 @@
     <filled>
       <assign name="confirmoneway" expr="confirmonewayField" />
       <if cond="confirmoneway == 'yes'">
-        <promt>
+        <prompt>
           Your flight has been booked.
-        </promt>
+        </prompt>
       <else/>
         <goto next ="#askFrom" />
       </if>
@@ -211,9 +211,9 @@
     <filled>
       <assign name="confirmrturn" expr="confirmrturnField"/>
       <if cond="confirmrturn == 'yes'">
-        <promt>
+        <prompt>
           Your flight has been booked.
-        </promt>
+        </prompt>
       <else/>
         <goto next ="#askFrom"/>
       </if>
