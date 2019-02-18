@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
+      xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
+
+
+  <!-- disable bargein for this dialog -->
+  <property name="bargein" value="false"/>
+
+
+  <!-- implementing the welcome menu -->
+  <menu id="menu">
+    <prompt>
+      Welcome! Do you want to book a flight or to get information about delayed flights? Say booking or information.
+    </prompt>
+    <choice next="lab1-booking.xml" accept="approximate">booking</choice>
+    <choice next="lab1-information.xml" accept="approximate">information</choice>
+    <catch event="nomatch noinput help">
+      <reprompt/>
+    </catch>
+  </menu>

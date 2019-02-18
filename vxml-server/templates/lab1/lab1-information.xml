@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml" application="lab1.xml"
+      xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
+
+
+  <!-- disable bargein for this dialog -->
+  <property name="bargein" value="false"/>
+
+
+  <!-- State machine -->
+  <form id="information">
+    <block>
+      Information
+      <break size="medium"/>
+      All flights are on time.
+      <goto next="lab1.xml"/>
+    </block>
+  </form>

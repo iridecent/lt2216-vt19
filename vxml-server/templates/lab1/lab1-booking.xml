@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
+<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml" application="lab1.xml"
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
 
 
   <!-- disable bargein for this dialog -->
   <property name="bargein" value="false"/>
-
-
-  <!-- implementing the welcome menu -->
-  <menu id="menu">
-    <prompt>
-      Welcome! Do you want to book a flight or to get information about delayed flights? Say booking or information.
-    </prompt>
-    <choice next="#welcome" accept="approximate">booking</choice>
-    <choice next="#information" accept="approximate">information</choice>
-  </menu>
 
 
   <!-- Data model -->
@@ -27,24 +17,6 @@
   <var name="confirmrturn" />
 
   <!-- State machine -->
-  <form id="information">
-    <block>
-      Information
-      <break size="medium"/>
-      All flights are on time.
-      <goto next="#menu"/>
-    </block>
-  </form>
-
-  <form id="booking">
-    <block>
-      Booking
-      <break size="medium"/>
-      All right. Forwarding you to the booking service.
-      <goto next="#welcome"/>
-    </block>
-  </form>
-
   <form id="welcome">
     <block>
       <prompt>
