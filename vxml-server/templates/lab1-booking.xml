@@ -8,22 +8,22 @@
 
 
   <!-- Data model -->
-  <var name="from" />
-  <var name="to" />
-  <var name="date" />
-  <var name="rturn" />
-  <var name="oneway" />
-  <var name="confirmoneway" />
-  <var name="confirmrturn" />
+  <var name="from"/>
+  <var name="to"/>
+  <var name="date"/>
+  <var name="rturn"/>
+  <var name="oneway"/>
+  <var name="confirmoneway"/>
+  <var name="confirmrturn"/>
 
   <!-- State machine -->
   <form id="welcome">
     <block>
       <prompt>
-        <break time="2000" />
+        <break time="2000"/>
         Welcome to the flight booking service.
       </prompt>
-      <goto next="#askFrom" />
+      <goto next="#askFrom"/>
     </block>
   </form>
 
