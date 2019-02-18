@@ -16,3 +16,4 @@
       <goto next="lab1.xml"/>
     </block>
   </form>
+</vxml>

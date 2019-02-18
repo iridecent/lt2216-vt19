@@ -10,7 +10,7 @@ def hello():
     response.headers["Content-Type"] = "application/xml"
     return response
 
-@app.route('/lab1')
+@app.route('lab1')
 def lab1():
     vxml = render_template('lab1.xml')
     response = make_response(vxml)
