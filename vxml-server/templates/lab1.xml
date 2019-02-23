@@ -14,9 +14,9 @@
   <!-- implementing the welcome menu -->
   <menu id="menu">
     <prompt>
-      Welcome! Do you want to book a flight or to get information about delayed flights? Say booking or information.
+      Welcome! Do you want to book a flight or to get information about delayed flights?<enumerate/>
     </prompt>
-    <choice next="lab1-booking.xml" accept="approximate">(flight) booking</choice>
-    <choice next="lab1-information.xml" accept="approximate">information</choice>
+    <choice next="/lab1-booking.xml" accept="approximate">(flight) booking</choice>
+    <choice next="/lab1-information.xml" accept="approximate">information</choice>
   </menu>
 </vxml>
