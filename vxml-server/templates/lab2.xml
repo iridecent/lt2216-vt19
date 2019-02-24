@@ -32,7 +32,7 @@
     <filled>
 	<prompt>
 	  You said: <value expr="dobedo$.utterance"/>,
-	  with the interpretation <value expr="dobedo$.interpretation"/>
+	  this was uttered by <value expr="dobedo$.interpretation"/>
 	  and with a confidence of <value expr="dobedo$.confidence"/>
 	  <break time="2s"/>
 	</prompt>
@@ -47,9 +47,8 @@
     </field>
     <filled>
 	<prompt>
-	  You said: <value expr="siri$.utterance"/>,
-	  with the interpretation <value expr="siri$.interpretation"/>
-	  and with a confidence of <value expr="siri$.confidence"/>
+	  Object was: <value expr="smartphone$.interpretation.object"/>
+      Action was: <value expr="smartphone$.interpretation.action"/>
 	  <break time="2s"/>
 	</prompt>
 	<goto next="#text"/>
