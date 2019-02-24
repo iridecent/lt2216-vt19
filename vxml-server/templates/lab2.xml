@@ -51,7 +51,7 @@
       Action was: <value expr="smartphone$.interpretation.action"/>
 	  <break time="2s"/>
 	</prompt>
-	<goto next="#text"/>
+	<goto next="#test"/>
     </filled>
   </form>
 
