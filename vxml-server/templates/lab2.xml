@@ -20,7 +20,40 @@
 	  and with a confidence of <value expr="foo$.confidence"/>
 	  <break time="2s"/>
 	</prompt>
-	<goto next="#test"/>
+	<goto next="#quotes"/>
     </filled>
   </form>
+
+  <form id="quotes">
+    <field name="dobedo">
+      <prompt>Say a quote and I tell you the author!</prompt>
+      <grammar src="grammars/lab2_quotes.xml"/>
+    </field>
+    <filled>
+	<prompt>
+	  You said: <value expr="dobedo$.utterance"/>,
+	  with the interpretation <value expr="dobedo$.interpretation"/>
+	  and with a confidence of <value expr="dobedo$.confidence"/>
+	  <break time="2s"/>
+	</prompt>
+	<goto next="#smarthome"/>
+    </filled>
+  </form>
+
+  <form id="smarthome">
+    <field name="siri">
+      <prompt> Welcome to the smarthome assistant! What can I do for you? </prompt>
+      <grammar src="grammars/lab2_smarthome.xml"/>
+    </field>
+    <filled>
+	<prompt>
+	  You said: <value expr="siri$.utterance"/>,
+	  with the interpretation <value expr="siri$.interpretation"/>
+	  and with a confidence of <value expr="siri$.confidence"/>
+	  <break time="2s"/>
+	</prompt>
+	<goto next="#text"/>
+    </filled>
+  </form>
+
 </vxml>

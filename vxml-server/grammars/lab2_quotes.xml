@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<grammar version="1.0" tag-format="semantics/1.0" root="yn">
+  <rule id="yn">
+    <one-of>
+      <item>to do is to be<tag>out="Socrates";</tag></item>
+      <item>to be is to do<tag>out="Sartre";</tag></item>
+      <item>do be do be do<tag>out="Sinatra";</tag></item>
+    </one-of>
+  </rule>
+</grammar>

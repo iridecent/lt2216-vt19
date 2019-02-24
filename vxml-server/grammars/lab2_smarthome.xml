@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<grammar version="1.0" tag-format="semantics/1.0" root="yn">
+
+  <rule id="object">
+    <one-of>
+      <item> light </item>
+      <item> lights <tag> out = 'light'; </tag></item>
+      <item> heat </item>
+      <item> heater <tag> out = 'heat'; </tag></item>
+      <item> A C <tag> out = 'air conditioning'; </tag></item>
+      <item> air conditioning </item>
+      <item> window </item>
+      <item> windows <tag> out = 'window' </tag></item>
+      <item> door </item>
+    </one-of>
+  </rule>
+
+  <rule id="action">
+  <one-of>
+     <item> turn off </item>
+     <item> tun on </item>
+     <item> open </item>
+     <item> close </item>
+  </one-of>
+  </rule>
+
+  <rule id="command" scope="public">
+   <ruleref uri="#action"/>
+   <ruleref uri="#object"/>
+  </rule>
+
+
+
+</grammar>
