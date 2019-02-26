@@ -25,20 +25,9 @@
   </rule>
 
   <rule id="command" scope="public">
-    <example> ?please turn off the light <tag>{"object": "light", "action": "off"}</tag></example>
-    <example> ?please turn on the light <tag>{"object": "light", "action": "on"}</tag></example>
-    <example> ?please turn off the air conditioning <tag>{"object": "air conditioning", "action": "off"}</tag></example>
-    <example> ?please turn on the AC <tag>{"object": "air conditioning", "action": "on"}</tag></example>
-    <example> ?please turn on the heat <tag>{"object": "heat", "action": "on"}</tag></example>
-    <example> ?please turn off the heat <tag>{"object": "heat", "action": "on"}</tag></example>
-    <example> ?please open the window <tag>{"object": "window", "action": "open"}</tag></example>
-    <example> ?please close the window <tag>{"object": "window", "action": "close"}</tag></example>
-    <example> ?please close the door <tag>{"object": "door", "action": "close"}</tag></example>
-    <example> ?please open the door <tag>{"object": "door", "action": "close"}</tag></example>
    <ruleref uri="#action"/>
    <ruleref uri="#object"/>
+   <tag>out.object=rules.object; out.action=rules.action;</tag>
   </rule>
-
-
 
 </grammar>
