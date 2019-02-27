@@ -39,6 +39,13 @@ def lab2():
     response.headers["Content-Type"] = "application/xml"
     return response
 
+@app.route('/lab3')
+def lab3():
+    vxml = render_template('lab3.xml')
+    response = make_response(vxml)
+    response.headers["Content-Type"] = "application/xml"
+    return response
+
 @app.route('/grammars/<path:path>')
 def send_grammar(path):
     return send_from_directory('grammars', path)
