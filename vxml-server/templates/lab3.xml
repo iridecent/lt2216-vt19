@@ -5,7 +5,13 @@
       <prompt>
         The biggest loser among the top 10 cryptocurrencies is bitcoin cash (BCH), down 10.58 percent in the last 24 hours. It's also down 24.11 percent from the recent high of $1,641.40. 
         <break time="2s"/>
-         The biggest loser among the top 10 cryptocurrencies is bitcoin cash (BCH), down 10.58 percent in the last 24 hours. It's also down 24.11 percent from the recent high of $1,641.40. 
+         The biggest loser among the top 10
+         <phoneme alphabet="ipa" ph="ˈkrɪptəʊkʌrənsiz">cryptocurrencies</phoneme>
+         is bitcoin cash<break strength="medium"/>
+         <prosody volume="soft">(BCH)</prosody>,<break strength="strong"/>down 10.58 percent in
+         the<emphasis level="strong">last 24</emphasis>hours.<break strength="x-strong"/>
+         It's also down<say-as interpret-as="cardinal">24.11</say-as>percent<break strength="medium"/>
+         from the recent high of $1,641.40.
       </prompt> 
     </block>
   </form>
