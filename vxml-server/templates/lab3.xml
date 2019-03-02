@@ -14,5 +14,40 @@
          from the recent high of $1,641.40.
       </prompt> 
     </block>
+
+    <form id="calendar">
+      <block name="bookappointment">
+        <prompt>
+          I have your calendar open.
+          <break strength="medium"/>
+          For what date?
+          <break strength="medium"/>
+          What time would you like to start?
+          <break strength="medium"/>
+          How much time do you want to block out?
+          <break strength="medium"/>
+          What shall we call this?
+          <break strength="medium"/>
+          Ok. [create and style the appointment summary!]
+        </prompt>
+      </block>
+    </form>
+
+  <!-- According to this interpretation: https://www.youtube.com/watch?v=-jAO9bVpqV8 -->
+  </form>
+  <form id="poetry">
+    <block name="buergschaft">
+      <prompt>
+        Die Bürgschaft
+
+        Zu Dionys, dem Tyrannen, schlich
+        Damon, den Dolch im Gewande:
+        Ihn schlugen die Häscher in Bande,
+        »Was wolltest du mit dem Dolche? sprich!«
+        Entgegnet ihm finster der Wüterich.
+        »Die Stadt vom Tyrannen befreien!«
+        »Das sollst du am Kreuze bereuen.«
+      </prompt>
+    </block>
   </form>
 </vxml>
