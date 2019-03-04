@@ -18,17 +18,18 @@
     <form id="calendar">
       <block name="bookappointment">
         <prompt>
-          I have your calendar open.
+          <speak>I have your <prosody volume="loud">calendar</prosody><break strength="x-weak"/>
+            <prosody volume="soft">open</prosody>.<break strength="medium"/>
+          For what <prosody rate="-10%" pitch="+15%" volume="loud">date</prosody>?
+          <break strength="medium"/> What <emphasis level="moderate">time</emphasis> would you like to start?
           <break strength="medium"/>
-          For what date?
+          How much <prosody rate="-10%" volume="medium">time</prosody> do you
+          <prosody volume="soft">want </prosody>to <prosody volume="soft">block</prosody>
+          <break strength="x-weak"/>out?<break strength="medium"/>
+          What shall we<prosody volume="loud" pitch="+15%" rate="medium">call</prosody><prosody volume="soft" pitch="-10%">this</prosody>?
           <break strength="medium"/>
-          What time would you like to start?
-          <break strength="medium"/>
-          How much time do you want to block out?
-          <break strength="medium"/>
-          What shall we call this?
-          <break strength="medium"/>
-          Ok. [create and style the appointment summary!]
+          Ok. You have a <prosody volume="loud" pitch="+15%">hairdresser appointment</prosody>
+          15.03.2019 at 11:00 am <break strength="weak"/>which takes approx. one hour.</speak>
         </prompt>
       </block>
     </form>
