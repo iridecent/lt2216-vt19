@@ -39,15 +39,17 @@
   <form id="poetry">
     <block name="buergschaft">
       <prompt>
-        Die Bürgschaft
-
-        Zu Dionys, dem Tyrannen, schlich
-        Damon, den Dolch im Gewande:
+        <speak>
+        Die Bürgschaft <break strength="moderate"/>von Friedrich Schiller
+        <break strength="strong"/>
+        Zu <prosody volume="loud">Dionys,</posody><prosody volume="soft" pitch="-10%">dem Tyrannen</prosody>, schlich
+        <prosody volume="loud" rate="slow">Damon</prosody>, den Dolch im Gewande:
         Ihn schlugen die Häscher in Bande,
-        »Was wolltest du mit dem Dolche? sprich!«
-        Entgegnet ihm finster der Wüterich.
-        »Die Stadt vom Tyrannen befreien!«
-        »Das sollst du am Kreuze bereuen.«
+        <prosody rate="120%" volume="loud">»Was wolltest du mit dem Dolche?</prosody><break strength="strong"/>
+        <prosody volume="x-loud" pitch="+10%">sprich!«</prosody>
+        <prosody volume="soft" rate="80%">Entgegnet ihm finster der Wüterich.</prosody>
+        <prosody volume="medium" pitch="+10%">»Die <emphasis level="moderate">Stadt</emphasis> vom <emphasis level="moderate">Tyrannen</emphasis> befreien!«</prosody>
+        »Das sollst du am Kreuze bereuen.«.</speak>
       </prompt>
     </block>
   </form>
