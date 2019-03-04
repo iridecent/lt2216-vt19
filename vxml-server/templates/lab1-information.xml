@@ -3,8 +3,11 @@
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
 
 
-  <!-- disable bargein for this dialog -->
-  <property name="bargein" value="false"/>
+ <link next="lab1.vxml">
+    <grammar>
+      <![CDATA[(start over)]]]]>
+    </grammar>
+  </link>
 
 
   <!-- State machine -->

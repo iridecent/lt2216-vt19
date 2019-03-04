@@ -3,8 +3,11 @@
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
 
 
-  <!-- disable bargein for this dialog -->
-  <property name="bargein" value="false"/>
+  <link next="lab1.vxml">
+    <grammar>
+      <![CDATA[(start over)]]]]>
+    </grammar>
+  </link>
 
 
   <!-- Data model -->
@@ -29,7 +32,7 @@
 
   <form id="askFrom">
     <field name="fromField">
-      <prompt>
+      <prompt bargein="false">
         What city are you leaving from?
       </prompt>
       <option>london</option>
@@ -83,7 +86,7 @@
 
   <form id="askDate">
     <field name="dateField">
-      <prompt>
+      <prompt bargein="false">
         What date do you want to leave?
       </prompt>
       <option>tomorrow</option>

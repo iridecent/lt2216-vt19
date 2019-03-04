@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
-<link next="links.vxml">
-  <grammar>
-    <![CDATA[(start over)]]]]>
-  </grammar>
-</link>
+
+  <link next="lab1.vxml">
+    <grammar>
+      <![CDATA[(start over)]]]]>
+    </grammar>
+  </link>
 
   <!-- disable bargein for this dialog -->
   <property name="bargein" value="false"/>
