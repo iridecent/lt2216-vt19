@@ -7,11 +7,28 @@
       <initial>
         How would you like to travel?
       </initial>
+
     <field id="origin">
       <grammar src="flightbooking4.xml#FROM"/>
     </field>
+
     <field id="destination">
       <grammar src="flightbooking4.xml#TO"/>
     </field>
-  </form>
+
+    <field id="day">
+      <grammar src="flightbooking4.xml#DAY"/>
+    </field>
+
+    <field id="month">
+      <grammar src="flightbooking4.xml#MONTH"/>
+    </field>
+
+  <filled mode="all" namelist="booking">          .....what about this one?
+    <prompt>
+      You want to travel<value expr="booking"/>
+   </prompt>
+  </filled>
+
+ </form>
 </vxml>

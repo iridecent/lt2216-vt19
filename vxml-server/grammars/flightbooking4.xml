@@ -1,32 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <grammar version="1.0" tag-format="semantics/1.0" root="TOP">
   <rule name="TOP">
+    <one-of>
+      <item repeat="0-1">I want to go</item>
+      <item repeat="0-1">I want to travel</item>
+    </one-of>
     <item>
       <ruleref uri="#FROM"/>
-      <tag>out.from=rules.from</tag>
-    </item>
-
-    <item>
       <ruleref uri="#TO"/>
-        <tag>out.to=rules.to></tag>
+      <ruleref uri="#DATE"/>
+      <tag>out.FROM=rules.FROM; out.TO=rules.TO; out.DATE=rules.DATE</tag>
     </item>
   </rule>
 
   <rule name="FROM" scope="public">
-    <one-of>
-      <item>London<tag>out.from="London"</tag></item>
-      <item>Paris<tag>out.from="Paris"</tag></item>
-      <item>New York<tag>out.from="New York"</tag></item>
-    </one-of>
+    <item>from</item>
+    <item>
+      <ruleref uri="#CITY"/>
+      <tag>out=rules.CITY</tag>
+    </item>
   </rule>
 
   <rule name="TO" scope="public">
+    <item>to</item>
+    <item>
+      <ruleref uri="#CITY"/>
+      <tag>out=rules.CITY</tag>
+    </item>
+  </rule>
+
+  <rule name="CITY" scope="public">
     <one-of>
-      <item>London<tag>out.to="London"</tag></item>
-      <item>Paris<tag>out.to="Paris"</tag></item>
-      <item>New York<tag>out.to="New York"</tag></item>
+      <item>London<tag>out.CITY="London"</tag></item>
+      <item>Paris<tag>out.CITY="Paris"</tag></item>
+      <item>New York<tag>out.CITY="New York"</tag></item>
     </one-of>
   </rule>
 
+  <rule name="DATE" scope="public">
+    <item>
+      <ruleref uri="#DAY"/>
+      <ruleref uri="#MONTH"/>
+      <tag>out.DAY=rules.DAY; out.MONTH=rules.MONTH</tag>
+    </item>
+  </rule>
 
+  <rule name="DAY" scope="public">
+    <item>the</item>
+    <one-of>
+      <item>1st<tag>out.DAY="1st"</tag></item>
+      <item>2nd<tag>out.DAY="2nd"</tag></item>
+      <item>3rd<tag>out.DAY="3rd"</tag></item>
+      <item>4th<tag>out.DAY="4th"</tag></item>
+      <item>5th<tag>out.DAY="5th"</tag></item>
+      <item>6th<tag>out.DAY="6th"</tag></item>
+      <item>7th<tag>out.DAY="7th"</tag></item>
+      <item>8th<tag>out.DAY="8th"</tag></item>
+      <item>9th<tag>out.DAY="9th"</tag></item>
+      <item>10th<tag>out.DAY="10th"</tag></item>
+    </one-of>
+  </rule>
+
+  <rule name="MONTH" scope="public">
+    <item>of</item>
+    <one-of>
+      <item>January<tag>out.MONTH="January"</tag></item>
+      <item>February<tag>out.MONTH="February"</tag></item>
+      <item>March<tag>out.to="MONTH"</tag></item>
+    </one-of>
+  </rule>
 </grammar>
