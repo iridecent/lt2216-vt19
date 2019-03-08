@@ -3,7 +3,7 @@
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
 
   <form id="booking">
-    <grammar src="flightbooking4.xml"/>
+    <grammar src="grammars/flightbooking4.xml"/>
       <initial name="bypass">
         <prompt>How do you want to travel?</prompt>
         <nomatch cout="1">
@@ -18,22 +18,22 @@
       </initial>
 
     <field name="FROM">
-      <grammar src="flightbooking4.xml#FROM"/>
+      <grammar src="grammars/flightbooking4.xml#FROM"/>
       <prompt>Where are you leaving from?</prompt>
     </field>
 
     <field name="TO">
-      <grammar src="flightbooking4.xml#TO"/>
+      <grammar src="grammars/flightbooking4.xml#TO"/>
       <prompt>Where are you going?</prompt>
     </field>
 
     <field name="DAY">
-      <grammar src="flightbooking4.xml#DAY"/>
+      <grammar src="grammars/flightbooking4.xml#DAY"/>
       <prompt>What day are you leaving?</prompt>
     </field>
 
     <field name="MONTH">
-      <grammar src="flightbooking4.xml#MONTH"/>
+      <grammar src="grammars/flightbooking4.xml#MONTH"/>
       <prompt>Which month are you travelling?</prompt>
     </field>
 
