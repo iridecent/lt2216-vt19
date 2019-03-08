@@ -2,7 +2,6 @@
 <vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
 
-
   <menu id="menu">
     <prompt>
       Welcome! Do you want to book a flight or to get information about delayed flights?
@@ -18,9 +17,10 @@
     <goto next="#menu"/>
   </form>
 
+
   <form id="booking">
     <grammar src="grammars/flightbooking4.xml"/>
-      <initial name="bypass">
+      <initial name="bypass_initial">
         <prompt>How do you want to travel?</prompt>
         <nomatch cout="1">
           Please say something like "I want to travel from London to Paris the 10th of March"!
@@ -28,7 +28,7 @@
         <nomatch count="2">
           I'm sorry, i still don't understand.
           I'll ask you for information one piece at a time.
-          <assign name="bypass" expr="true"/>
+          <assign name="bypass_initial" expr="true"/>
           <reprompt/>
         </nomatch>
       </initial>
@@ -53,10 +53,16 @@
       <prompt>Which month are you travelling?</prompt>
     </field>
 
+    <field name="FOOD">
+      <grammar src="grammars/flightbooking4.xml#FOOD"/>
+      <prompt>Do you have any food restrictions?</prompt>
+    </field>
+
   <filled>
     <prompt>
       You want to travel from <value expr="FROM"/> to <value expr="TO"/> the <value expr="DAY"/> of <value expr="MONTH"/>
-   </prompt>
+      Thanks, your flight has been booked!
+    </prompt>
   </filled>
  </form>
 </vxml>

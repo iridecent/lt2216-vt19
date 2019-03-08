@@ -10,7 +10,8 @@
         <ruleref uri="#FROM"/>
         <ruleref uri="#TO"/>
         <ruleref uri="#DATE"/>
-        <tag>out.FROM=rules.FROM; out.TO=rules.TO; out.DATE=rules.DATE</tag>
+        <ruleref uri="#FOOD"/>
+        <tag>out.FROM=rules.FROM; out.TO=rules.TO; out.DATE=rules.DATE; out.FOOD=rules.FOOD</tag>
       </item>
 
       <item>
@@ -21,8 +22,22 @@
 
       <item>
         <ruleref uri="#FROM"/>
+        <ruleref uri="#TO"/>
+        <ruleref uri="#FOOD"/>
+        <tag>out.FROM=rules.FROM; out.TO=rules.TO; out.FOOD=rules.FOOD</tag>
+      </item>
+
+      <item>
+        <ruleref uri="#FROM"/>
         <ruleref uri="#DATE"/>
         <tag>out.FROM=rules.FROM; out.DATE=rules.DATE</tag>
+      </item>
+
+      <item>
+        <ruleref uri="#FROM"/>
+        <ruleref uri="#DATE"/>
+        <ruleref uri="#FOOD"/>
+        <tag>out.FROM=rules.FROM; out.DATE=rules.DATE; out.FOOD=rules.FOOD</tag>
       </item>
 
       <item>
@@ -90,6 +105,19 @@
       <item>January<tag>out.MONTH="January"</tag></item>
       <item>February<tag>out.MONTH="February"</tag></item>
       <item>March<tag>out.to="MONTH"</tag></item>
+    </one-of>
+  </rule>
+
+  <rule name="FOOD" scope="public">
+    <one-of>
+      <item repeat="0-1">having</item>
+      <item repeat="0-1">eating</item>
+      <item repeat="0-1">with</item>
+    </one-of>
+    <one-of>
+      <item>vegan food<tag>out.FOOD="vegan food"</tag></item>
+      <item>vegetarian food<tag>out.FOOD="vegetarian food"</tag></item>
+      <item>gluten free food<tag>out.FOOD="gluten free food"</tag></item>
     </one-of>
   </rule>
 </grammar>
