@@ -2,6 +2,22 @@
 <vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
 
+
+  <menu id="menu">
+    <prompt>
+      Welcome! Do you want to book a flight or to get information about delayed flights?
+    </prompt>
+    <choice next="#booking">book a flight</choice>
+    <choice next="#information">information</choice>
+  </menu>
+
+  <form id="information">
+    <prompt>
+      All flights are in time!
+    </prompt>
+    <goto next="#menu"/>
+  </form>
+
   <form id="booking">
     <grammar src="grammars/flightbooking4.xml"/>
       <initial name="bypass">
