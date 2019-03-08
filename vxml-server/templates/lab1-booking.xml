@@ -35,9 +35,9 @@
       <prompt bargein="false">
         What city are you leaving from?
       </prompt>
-      <option>london</option>
-      <option>paris</option>
-      <option>new york</option>
+      <option>London</option>
+      <option>Paris</option>
+      <option>New York</option>
       <nomatch>
         I didn't understand. You can say London, Paris or New York.
         <reprompt/>
@@ -58,9 +58,9 @@
       <prompt timeout="8s">
         Where are you going?
       </prompt>
-      <option>london</option>
-      <option>paris</option>
-      <option>new york</option>
+      <option>London</option>
+      <option>Paris</option>
+      <option>New York</option>
       <nomatch>
         I didn't understand. You can say London, Paris or New York.
         <reprompt/>
@@ -90,13 +90,13 @@
         What date do you want to leave?
       </prompt>
       <option>tomorrow</option>
-      <option>monday</option>
-      <option>tuesday</option>
-      <option>wednesday</option>
-      <option>thursday</option>
-      <option>friday</option>
-      <option>saturday</option>
-      <option>sunday</option>
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+      <option>Sunday</option>
       <nomatch>
         I didn't understand. You can say tomorrow or any weekday from Monday to Sunday.
         <reprompt/>
@@ -144,13 +144,13 @@
         What date do you want to rturn?
       </prompt>
       <option>tomorrow</option>
-      <option>monday</option>
-      <option>tuesday</option>
-      <option>wednesday</option>
-      <option>thursday</option>
-      <option>friday</option>
-      <option>saturday</option>
-      <option>sunday</option>
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+      <option>Sunday</option>
     </field>
     <nomatch>
         I didn't understand. You can say tomorrow or any weekday from Monday to Sunday.
