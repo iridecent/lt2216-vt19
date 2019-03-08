@@ -5,16 +5,38 @@
       <item repeat="0-1">I want to go</item>
       <item repeat="0-1">I want to travel</item>
     </one-of>
-    <item>
-      <ruleref uri="#FROM"/>
-      <ruleref uri="#TO"/>
-      <ruleref uri="#DATE"/>
-      <tag>out.FROM=rules.FROM; out.TO=rules.TO; out.DATE=rules.DATE</tag>
-    </item>
+    <one-of>
+      <item>
+        <ruleref uri="#FROM"/>
+        <ruleref uri="#TO"/>
+        <ruleref uri="#DATE"/>
+        <tag>out.FROM=rules.FROM; out.TO=rules.TO; out.DATE=rules.DATE</tag>
+      </item>
+
+      <item>
+        <ruleref uri="#FROM"/>
+        <ruleref uri="#TO"/>
+        <tag>out.FROM=rules.FROM; out.TO=rules.TO</tag>
+      </item>
+
+      <item>
+        <ruleref uri="#FROM"/>
+        <ruleref uri="#DATE"/>
+        <tag>out.FROM=rules.FROM; out.DATE=rules.DATE</tag>
+      </item>
+
+      <item>
+        <ruleref uri="#TO"/>
+        <ruleref uri="#DATE"/>
+        <tag>out.TO=rules.TO; out.DATE=rules.DATE</tag>
+      </item>
+    </one-of>
   </rule>
 
+
+
   <rule name="FROM" scope="public">
-    <item>from</item>
+    <item repeat="0-1">from</item>
     <item>
       <ruleref uri="#CITY"/>
       <tag>out=rules.CITY</tag>
@@ -22,7 +44,7 @@
   </rule>
 
   <rule name="TO" scope="public">
-    <item>to</item>
+    <item repeat="0-1">to</item>
     <item>
       <ruleref uri="#CITY"/>
       <tag>out=rules.CITY</tag>
@@ -46,6 +68,7 @@
   </rule>
 
   <rule name="DAY" scope="public">
+    <item repeat="0-1">on</item>
     <item>the</item>
     <one-of>
       <item>1st<tag>out.DAY="1st"</tag></item>

@@ -4,31 +4,43 @@
 
   <form id="booking">
     <grammar src="flightbooking4.xml"/>
-      <initial>
-        How would you like to travel?
+      <initial name="bypass">
+        <prompt>How do you want to travel?</prompt>
+        <nomatch cout="1">
+          Please say something like "I want to travel from London to Paris the 10th of March"!
+        </nomatch>
+        <nomatch count="2">
+          I'm sorry, i still don't understand.
+          I'll ask you for information one piece at a time.
+          <assign name="bypass" expr="true"/>
+          <reprompt/>
+        </nomatch>
       </initial>
 
-    <field id="origin">
+    <field name="FROM">
       <grammar src="flightbooking4.xml#FROM"/>
+      <prompt>Where are you leaving from?</prompt>
     </field>
 
-    <field id="destination">
+    <field name="TO">
       <grammar src="flightbooking4.xml#TO"/>
+      <prompt>Where are you going?</prompt>
     </field>
 
-    <field id="day">
+    <field name="DAY">
       <grammar src="flightbooking4.xml#DAY"/>
+      <prompt>What day are you leaving?</prompt>
     </field>
 
-    <field id="month">
+    <field name="MONTH">
       <grammar src="flightbooking4.xml#MONTH"/>
+      <prompt>Which month are you travelling?</prompt>
     </field>
 
-  <filled mode="all" namelist="booking">          .....what about this one?
+  <filled>
     <prompt>
-      You want to travel<value expr="booking"/>
+      You want to travel from <value expr="FROM"/> to <value expr="TO"/> the <value expr="DAY"/> of <value expr="MONTH"/>
    </prompt>
   </filled>
-
  </form>
 </vxml>
