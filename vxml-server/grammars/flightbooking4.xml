@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<grammar version="1.0" tag-format="semantics/1.0" root="TOP">
+  <rule name="TOP">
+    <item>
+      <ruleref uri="#FROM"/>
+      <tag>out.from=rules.from</tag>
+    </item>
+
+    <item>
+      <ruleref uri="#TO"/>
+        <tag>out.to=rules.to></tag>
+    </item>
+  </rule>
+
+  <rule name="FROM" scope="public">
+    <one-of>
+      <item>London<tag>out.from="London"</tag></item>
+      <item>Paris<tag>out.from="Paris"</tag></item>
+      <item>New York<tag>out.from="New York"</tag></item>
+    </one-of>
+  </rule>
+
+  <rule name="TO" scope="public">
+    <one-of>
+      <item>London<tag>out.to="London"</tag></item>
+      <item>Paris<tag>out.to="Paris"</tag></item>
+      <item>New York<tag>out.to="New York"</tag></item>
+    </one-of>
+  </rule>
+
+
+</grammar>
