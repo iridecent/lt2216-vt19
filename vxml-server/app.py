@@ -46,8 +46,8 @@ def lab3():
     response.headers["Content-Type"] = "application/xml"
     return response
 
-@app.route('/lab4.xml')
-def lab3():
+@app.route('/lab4')
+def lab4():
     vxml = render_template('lab4.xml')
     response = make_response(vxml)
     response.headers["Content-Type"] = "application/xml"
