@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <grammar version="1.0" tag-format="semantics/1.0" root="command">
 
-  <rule id="object">
+  <rule id="object-oc">
+    <item>the</item>
     <one-of>
-      <item> light </item>
-      <item> lights <tag> out = 'light'; </tag></item>
-      <item> heat </item>
-      <item> heater <tag> out = 'heat'; </tag></item>
-      <item> A C <tag> out = 'air conditioning'; </tag></item>
-      <item> air conditioning </item>
-      <item> window </item>
-      <item> windows <tag> out = 'window' </tag></item>
-      <item> door </item>
+    <item> light </item>
+        <item> lights <tag> out = 'light'; </tag></item>
+        <item> heat </item>
+        <item> heater <tag> out = 'heat'; </tag></item>
+        <item> A C <tag> out = 'air conditioning'; </tag></item>
+        <item> air conditioning </item>
     </one-of>
   </rule>
 
-  <rule id="action">
-  <one-of>
-     <item> turn off </item>
-     <item> tun on </item>
+
+    <rule id="object-oo">
+    <item>the</item>
+    <one-of>
+        <item> window </item>
+        <item> windows <tag> out = 'window' </tag></item>
+        <item> door </item>
+    </one-of>
+  </rule>
+
+
+  <rule id="action-oc">
+    <item repeat="0-1">please</item>
+    <one-of>
      <item> open </item>
      <item> close </item>
-  </one-of>
+    </one-of>
   </rule>
 
-  <rule id="command" scope="public">
-   <ruleref uri="#action"/>
-   <ruleref uri="#object"/>
-   <tag>out.object=rules.object; out.action=rules.action;</tag>
+
+  <rule id="action-oo">
+    <item repeat="0-1">please</item>
+    <one-of>
+     <item> turn off </item>
+     <item> tun on </item>
+    </one-of>
   </rule>
 
-</grammar>
+   <rule id="command" scope="public">
+       <item>
+           <ruleref uri="#action-oc"/>
+           <ruleref uri="#object-oc"/>
+           <tag>out.object-oc=rules.object-oc; out.action-oc=rules.action-oc;</tag>
+       </item>
+       <item>
+           <ruleref uri="#action-oo"/>
+           <ruleref uri="#object-oo"/>
+           <tag>out.object-oo=rules.object-oo; out.action-oo=rules.action-oo;</tag>
+       </item>
+  </rule>
+
+ </grammar>
