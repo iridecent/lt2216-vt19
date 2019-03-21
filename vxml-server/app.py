@@ -1,7 +1,14 @@
 from flask import Flask, render_template, make_response, send_from_directory
+import random
 app = Flask(__name__)
 
 temp = '13'
+
+def easy():
+    options = ["rock", "paper", "scissors"]
+    answer = random.choice(options)
+    return answer
+
 
 @app.route('/weather')
 def hello():
@@ -56,3 +63,11 @@ def lab4():
 @app.route('/grammars/<path:path>')
 def send_grammar(path):
     return send_from_directory('grammars', path)
+
+
+@app.route('/final')
+def lab1():
+    vxml = render_template('final.xml', easy=easy())
+    response = make_response(vxml)
+    response.headers["Content-Type"] = "application/xml"
+    return response
