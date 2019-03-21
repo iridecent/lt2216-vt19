@@ -2,10 +2,13 @@
 <vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
 
-  <menu id="menu">
+  <menu id="top">
     <prompt>
       Welcome! Do you want to book a flight or to get information about delayed flights?
     </prompt>
+    <noinput>
+      You didn't say anything!
+    </noinput>
     <choice next="#booking">book a flight</choice>
     <choice next="#information">information</choice>
   </menu>
@@ -14,7 +17,7 @@
     <prompt>
       All flights are in time!
     </prompt>
-    <goto next="#menu"/>
+    <goto next="#top"/>
   </form>
 
 
@@ -22,7 +25,7 @@
     <grammar src="grammars/flightbooking4.xml"/>
       <initial name="bypass_initial">
         <prompt>How do you want to travel?</prompt>
-        <nomatch cout="1">
+        <nomatch count="1">
           Please say something like "I want to travel from London to Paris the 10th of March"!
         </nomatch>
         <nomatch count="2">
