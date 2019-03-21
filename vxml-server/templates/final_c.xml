@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
+      xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
+
+
+  <var name="level"/>
+  <var name="systemAnswer" expr="{{easy}}"/>          !!!!is that right????
+  <var name="userAnswer"/>
+
+
+  <menu id="menu">
+    <prompt>
+      Welcome to rock, paper, scissors!
+      Please choose a level. There is standard, hard or funny.
+      You can always quit the game by saying exit.
+    </prompt>
+    <choice next="#standardgame">standard</choice>
+    <choice next="#hardgame">hard</choice>
+    <choice next="#funnygane">funny</choice>
+  </menu>
+
+
+
+  <form id="end">
+    <block>
+      <prompt>
+        Okay, you want to exit the game. Thanks for playing!
+      </prompt>
+      <exit/>
+    </block>
+  </form>
+
+  <form id="newround">
+    <field name="asklevel">
+    <prompt>
+      Good job! Do you want to play again? If so, please choose a level, otherwise say exit.
+    </prompt>
+    <filled>
+      <assign name="level" expr="asklevel"/>
+    </filled>
+    </field>
+  </form>
+
+
+  <form id="preparation">
+    <prompt>
+      You chose the level <value expr="asklevel"/>. Do you want to start the game right away
+      or do you want to hear the rules first? Say start or rules.
+    </prompt>
+    <choice next="#startplay">start</choice>
+    <choice next="#rules">rules</choice>
+  </form>
+
+
+  <form id="rules">
+    <if cond="level == 'standard'">
+      <prompt>
+        We are going to play rock, paper, scissors. I will choose one of them, but won't tell you which one,
+        and then ask you to choose one. Then I tell you what we both had and who won.
+        Rock smashes scissors, scissors cuts paper and paper wraps rock.
+      </prompt>
+      <goto next="#playstandard"/>
+    <elseif cond="level == 'hard'">
+      <prompt>
+        We are going to play rock, paper, scissors. I will choose one of them, but won't tell you which one,
+        and then ask you to choose one. Then I tell you what we both had and who won.
+        Rock smashes scissors, scissors cuts paper and paper wraps rock. But. There will be funny and slightly
+        unfair surprises, so don't take it personally.
+      </prompt>
+      <goto next="#playfunny"/>
+    </elseif>
+    <elseif cond="level == 'hard'">
+      <prompt>
+        We are going gto play rock, paper, scissors, lizard, spock as Sheldon explains it in Big Bang Theory:
+        Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors,
+        scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock,
+        and as it always has, rock crushes scissors.
+        I will choose one of them, but won't tell you which one,
+        and then ask you to choose one. Then I tell you what we both had and who won.
+      </prompt>
+      <goto next="#playhard"/>
+    </elseif>
+    </if>
+  </form>
+
+
+  <form id="playstandard">
+    <field name="user">
+      <promt>
+        All right, I chose my answer. Now it is your turn.
+      </promt>
+      <option>rock</option>
+      <option>paper</option>
+      <option>scissors</option>
+      <filled>
+        <assign name="userAnswer" expr="user"/>
+        <goto next="result"/>
+      </filled>
+    </field>
+  </form>
+
+  <form id="playfunny">
+  </form>
+
+  <form id="playhard">
+  </form>
+
+  <form id="resultstandard">
+    <field>
+      <promt>
+        All right, my answer was {{easy}} and yours was <value expr="user"/>.
+      </promt>
+      <if cond="systemAnswer == userAnswer">
+        <prompt>
+          We picked the same. It's a tie!
+        </prompt>
+        <goto next="#menu"/>
+      <elseif cond="systemAnswer == 'rock' &amp;&amp; userAnswer == 'paper'">
+        <prompt>
+          You won!
+        </prompt>
+        <goto next="#menu"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemAnswer == 'paper'">
+        <prompt>I won!</prompt>
+        <goto next="#menu"/>
+      </elseif>
+      <elseif cond="systemAnswer == 'rock' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>I won!</prompt>
+        <goto next="#menu"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemAnswer == 'scissors'">
+        <prompt>You won!</prompt>
+        <goto next="#menu"/>
+      </elseif>
+      <elseif cond="userAnswer == 'paper' &amp;&amp; systemAnswer == 'scissors'">
+        <prompt>I won!</prompt>
+        <goto next="#menu"/>
+      </elseif>
+      <elseif cond="systemAnswer == 'paper' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>You won!</prompt>
+        <goto next="#menu"/>
+      </elseif>
+      </if>
+    </field>
+  </form>
+
+  <form id="resultfunny">
+  </form>
+
+  <form id="resulthard">
+  </form>
+
+</vxml>
