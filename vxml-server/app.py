@@ -4,10 +4,21 @@ app = Flask(__name__)
 
 temp = '13'
 
-def easy():
+def level_1():
     options = ["rock", "paper", "scissors"]
     answer = random.choice(options)
     return answer
+
+def level_2():
+    options = ["rock", "paper", "scissors", "fire", "water"]
+    answer = random.choice(options)
+    return answer
+
+def level_3():
+    options = ["rock", "paper", "scissors", "lizard", "spock"]
+    answer = random.choice(options)
+    return answer
+
 
 
 @app.route('/weather')
@@ -67,7 +78,7 @@ def send_grammar(path):
 
 @app.route('/final')
 def lab1():
-    vxml = render_template('final.xml', easy=easy())
+    vxml = render_template('final.xml', standard=level_1(), funny=level_2(), hard=level_3())
     response = make_response(vxml)
     response.headers["Content-Type"] = "application/xml"
     return response
