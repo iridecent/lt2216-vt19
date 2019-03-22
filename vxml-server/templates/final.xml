@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
+      xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
+
+
+  <var name="level"/>
+  <var name="systemAnswer" expr="{{standard}}"/>
+  <var name="systemfunnyAnswer" expr="{{funny}}"/>
+  <var name="systemhardAnswer" expr="{{hard}}"/>
+  <var name="userAnswer"/>
+  <var name="userhardAnswer"/>
+
+
+  <form id="welcome">
+    <block>
+      <prompt>
+        Welcome to rock, paper, scissors!
+      </prompt>
+      <goto next="#chooselevel"/>
+    </block>
+  </form>
+
+  <form id="chooselevel">
+    <field name="asklevel">
+      <prompt>
+        Please choose a level. There is standard, hard and funny.
+      </prompt>
+      <option>standard</option>
+      <option>funny</option>
+      <option>hard</option>
+    </field>
+    <filled>
+      <assign name="level" expr="asklevel"/>
+      <goto next="#preparation"/>
+    </filled>
+  </form>
+
+  <form id="newround">
+    <prompt>
+      Good job! Do you want to play again? If so, say play again, otherwise say exit.
+    </prompt>
+    <clear namelist="level systemAnswer systemfunnyAnswer systemhardAnswer userAnswer userhardAnswer"/>
+    <choice next="#chooselevel">play again</choice>
+    <choice next="#end">exit</choice>
+  </form>
+
+   <form id="end">
+    <block>
+      <prompt>
+        Okay, you want to exit the game. Thanks for playing!
+      </prompt>
+      <exit/>
+    </block>
+  </form>
+
+
+  <menu id="preparation">
+      <prompt>
+        You chose the level <value expr="asklevel"/>. Do you want to start the game right away
+        or do you want to hear the rules first? Say start or rules.
+      </prompt>
+      <choice next="#startgame">start</choice>
+      <choice next="#rules">rules</choice>
+  </menu>
+
+
+  <form id="startgame">
+    <block>
+      <if cond="level == 'hard'">
+        <goto next="#playhard"/>
+      <else>
+        <goto next="#play"/>
+      </else>
+      </if>
+    </block>
+  </form>
+
+
+  <form id="rules">
+    <block>
+      <if cond="level == 'standard'">
+        <prompt>
+          We are going to play rock, paper, scissors. I will choose one of them, but won't tell you which one,
+          and then ask you to choose one. Then I tell you what we both had and who won.
+          Rock smashes scissors, scissors cuts paper and paper wraps rock.
+        </prompt>
+        <goto next="#play"/>
+      <elseif cond="level == 'funny'">
+        <prompt>
+          We are going to play rock, paper, scissors. I will choose one of them, but won't tell you which one,
+          and then ask you to choose one. Then I tell you what we both had and who won.
+          Rock smashes scissors, scissors cuts paper and paper wraps rock. But. There will be funny and slightly
+          unfair surprises, so don't take it personally.
+        </prompt>
+        <goto next="#play"/>
+      </elseif>
+      <elseif cond="level == 'hard'">
+        <prompt>
+          We are going gto play rock, paper, scissors, lizard, spock as Sheldon explains it in Big Bang Theory:
+          Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors,
+          scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock,
+          and as it always has, rock crushes scissors.
+          I will choose one of them, but won't tell you which one,
+          and then ask you to choose one. Then I tell you what we both had and who won.
+        </prompt>
+        <goto next="#playhard"/>
+      </elseif>
+      </if>
+    </block>
+  </form>
+
+
+  <form id="play">
+    <field name="user">
+      <promt>
+        All right, I chose my answer. Now it is your turn.
+      </promt>
+      <option>rock</option>
+      <option>paper</option>
+      <option>scissors</option>
+      <filled>
+        <assign name="userAnswer" expr="user"/>
+        <if cond="level == 'funny'">
+          <goto next="#resultfunny"/>
+        <else>
+          <goto next="#resultstandard"/>
+        </else>
+        </if>
+      </filled>
+    </field>
+  </form>
+
+  <form id="playhard">
+    <field name="userhard">
+      <promt>
+        All right, I chose my answer. Now it is your turn.
+      </promt>
+      <option>rock</option>
+      <option>paper</option>
+      <option>scissors</option>
+      <option>lizard</option>
+      <option>spock</option>
+      <filled>
+        <assign name="userhardAnswer" expr="userhard"/>
+        <goto next="#resulthard"/>
+      </filled>
+    </field>
+  </form>
+
+
+  <form id="resultstandard">
+    <field>
+      <promt>
+        All right, my answer was <value expr="{{standard}}"/> and yours was <value expr="user"/>.
+      </promt>
+      <if cond="systemAnswer == userAnswer">
+        <prompt>
+          We picked the same. It's a tie!
+        </prompt>
+        <goto next="#newround"/>
+      <elseif cond="systemAnswer == 'rock' &amp;&amp; userAnswer == 'paper'">
+        <prompt>
+          You won!
+        </prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemAnswer == 'paper'">
+        <prompt>I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemAnswer == 'rock' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemAnswer == 'scissors'">
+        <prompt>You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'paper' &amp;&amp; systemAnswer == 'scissors'">
+        <prompt>I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemAnswer == 'paper' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      </if>
+    </field>
+  </form>
+
+  <form id="resultfunny">
+    <field>
+      <promt>
+        All right, my answer was <value expr="{{funny}}"/> and yours was <value expr="user"/>.
+      </promt>
+      <if cond="systemfunnyAnswer == userAnswer">
+        <prompt>
+          We picked the same. It's a tie!
+        </prompt>
+        <goto next="#newround"/>
+      <elseif cond="systemfunnyAnswer == 'rock' &amp;&amp; userAnswer == 'paper'">
+        <prompt>
+          The paper wraps the rock. You won!
+        </prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemfunnyAnswer == 'paper'">
+        <prompt>The paper wraps the rock. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemfunnyAnswer == 'rock' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>The rock smashes the scissors. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemfunnyAnswer == 'scissors'">
+        <prompt>The rock smashes the scissors. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'paper' &amp;&amp; systemfunnyAnswer == 'scissors'">
+        <prompt>Scissors cut the paper. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemfunnyAnswer == 'paper' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>Scissors cut the paper. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemfunnyAnswer == 'fire' &amp;&amp; userAnswer == 'rock'">
+        <prompt>The rock melts. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemfunnyAnswer == 'fire' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>The fire burns the scissors. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemfunnyAnswer == 'fire' &amp;&amp; userAnswer == 'paper'">
+        <prompt>The fire burns the paper. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemfunnyAnswer == 'water' &amp;&amp; userAnswer == 'rock'">
+        <prompt>The rock sinks. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemfunnyAnswer == 'water' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>The scissors sink. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemfunnyAnswer == 'water' &amp;&amp; userAnswer == 'paper'">
+        <prompt>The water ruins the paper. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      </if>
+    </field>
+  </form>
+
+  <form id="resulthard">
+    <field>
+      <promt>
+        All right, my answer was <value expr="{{hard}}"/> and yours was <value expr="user"/>.
+      </promt>
+      <if cond="systemhardAnswer == userAnswer">
+        <prompt>
+          We picked the same. It's a tie!
+        </prompt>
+        <goto next="#newround"/>
+      <elseif cond="systemhardAnswer == 'rock' &amp;&amp; userAnswer == 'paper'">
+        <prompt>
+          The paper wraps the rock. You won!
+        </prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemhardAnswer == 'paper'">
+        <prompt>The paper wraps the rock. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'rock' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>The rock smashes the scissors. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemhardAnswer == 'scissors'">
+        <prompt>The rock smashes the scissors. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'rock' &amp;&amp; userAnswer == 'lizard'">
+        <prompt>The rock crushes the lizard. I won! </prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemhardAnswer == 'lizard'">
+        <prompt>The rock crushes the lizard. You won! </prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'rock' &amp;&amp; userAnswer == 'spock'">
+        <prompt>Spock vaporizes the rock. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'rock' &amp;&amp; systemhardAnswer == 'spock'">
+        <prompt>Spock vaporizes the rock. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'paper' &amp;&amp; systemhardAnswer == 'scissors'">
+        <prompt>Scissors cut the paper. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'paper' &amp;&amp; userAnswer == 'scissors'">
+        <prompt>Scissors cut the paper. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'paper' &amp;&amp; userAnswer == 'lizard'">
+        <prompt>The lizard eats the paper. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'paper' &amp;&amp; systemhardAnswer == 'lizard'">
+        <prompt>The lizard eats the paper. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'paper' &amp;&amp; userAnswer == 'spock'">
+        <prompt>Paper disproves spock. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'paper' &amp;&amp; systemhardAnswer == 'spock'">
+        <prompt>Paper disproves spock. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'scissors' &amp;&amp; userAnswer == 'spock'">
+        <prompt>Spock smashes scissors. You won!</prompt>
+        <goto next="#"/>newround
+      </elseif>
+      <elseif cond="userAnswer == 'scissors' &amp;&amp; systemhardAnswer == 'spock'">
+        <prompt>Spock smashes scissors. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'scissors' &amp;&amp; userAnswer == 'lizard'">
+        <prompt>Scissors decapitates lizard. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'scissors' &amp;&amp; systemhardAnswer == 'lizard'">
+        <prompt>Scissors decapitates lizard. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="systemhardAnswer == 'lizard' &amp;&amp; userAnswer == 'spock'">
+        <prompt>The lizard poisons spock. I won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      <elseif cond="userAnswer == 'lizard' &amp;&amp; systemhardAnswer == 'spock'">
+        <prompt>The lizard poisons spock. You won!</prompt>
+        <goto next="#newround"/>
+      </elseif>
+      </if>
+    </field>
+  </form>
+
+</vxml>
