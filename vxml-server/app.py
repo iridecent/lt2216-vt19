@@ -10,7 +10,7 @@ def level_1():
     return answer
 
 def level_2():
-    options = ["rock", "paper", "scissors", "fire", "water"]
+    options = ["fire", "water"]
     answer = random.choice(options)
     return answer
 
@@ -77,7 +77,7 @@ def send_grammar(path):
 
 
 @app.route('/final')
-def lab1():
+def final():
     vxml = render_template('final.xml', standard=level_1(), funny=level_2(), hard=level_3())
     response = make_response(vxml)
     response.headers["Content-Type"] = "application/xml"
