@@ -10,7 +10,7 @@ def level_1():
     return answer
 
 def level_2():
-    options = ["fire", "water"]
+    options = ["rock", "paper", "scissors", "fire", "water"]
     answer = random.choice(options)
     return answer
 
