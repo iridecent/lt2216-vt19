@@ -2,11 +2,12 @@
 <vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
       xmlns:voxeo="http://community.voxeo.com/xmlns/vxml">
 
+
   <link next="lab1.vxml">
-    <grammar>
-      <![CDATA[(start over)]]]]>
-    </grammar>
-  </link>
+   <grammar type="application/srgs+xml" root="root" version="1.0">
+     <rule id="root" scope="public">start over</rule>
+  </grammar>
+ </link>
 
   <!-- disable bargein for this dialog -->
   <property name="bargein" value="false"/>
@@ -17,7 +18,7 @@
     <prompt>
       Welcome! Do you want to book a flight or to get information about delayed flights?<enumerate/>
     </prompt>
-    <choice next="/lab1-booking.xml" accept="approximate">(flight) booking</choice>
-    <choice next="/lab1-information.xml" accept="approximate">information</choice>
+    <choice next="lab1-booking.xml" accept="approximate">booking</choice>
+    <choice next="lab1-information.xml" accept="approximate">information</choice>
   </menu>
 </vxml>
