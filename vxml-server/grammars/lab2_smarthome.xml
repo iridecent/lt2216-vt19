@@ -42,16 +42,18 @@
   </rule>
 
    <rule id="command" scope="public">
-       <item>
-           <ruleref uri="#action-oc"/>
-           <ruleref uri="#object-oc"/>
-           <tag>out.object-oc=rules.object-oc; out.action-oc=rules.action-oc;</tag>
-       </item>
-       <item>
-           <ruleref uri="#action-oo"/>
-           <ruleref uri="#object-oo"/>
-           <tag>out.object-oo=rules.object-oo; out.action-oo=rules.action-oo;</tag>
-       </item>
+        <one-of>
+            <item>
+                <ruleref uri="#action-oc"/>
+                <ruleref uri="#object-oc"/>
+                <tag>out.object-oc=rules.object-oc; out.action-oc=rules.action-oc;</tag>
+            </item>
+            <item>
+                <ruleref uri="#action-oo"/>
+                <ruleref uri="#object-oo"/>
+                <tag>out.object-oo=rules.object-oo; out.action-oo=rules.action-oo;</tag>
+            </item>
+        </one-of>
   </rule>
 
  </grammar>
