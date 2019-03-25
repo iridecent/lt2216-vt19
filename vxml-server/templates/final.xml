@@ -162,10 +162,10 @@
         <prompt>The rock smashes the scissors. You won!</prompt>
         <goto next="#newround"/>
       <elseif cond="userAnswer == 'paper' &amp;&amp; systemAnswer == 'scissors'"/>
-        <prompt>The scissors cut the paper. I won!</prompt>
+        <prompt>The scissors cuts the paper. I won!</prompt>
         <goto next="#newround"/>
       <elseif cond="systemAnswer == 'paper' &amp;&amp; userAnswer == 'scissors'"/>
-        <prompt>The scissors cut the paper. You won!</prompt>
+        <prompt>The scissors cuts the paper. You won!</prompt>
         <goto next="#newround"/>
       </if>
     </block>
@@ -196,10 +196,10 @@
         <prompt>The rock smashes the scissors. You won!</prompt>
         <goto next="#newround"/>
       <elseif cond="userAnswer == 'paper' &amp;&amp; systemfunnyAnswer == 'scissors'"/>
-        <prompt>Scissors cut the paper. I won!</prompt>
+        <prompt>Scissors cuts the paper. I won!</prompt>
         <goto next="#newround"/>
       <elseif cond="systemfunnyAnswer == 'paper' &amp;&amp; userAnswer == 'scissors'"/>
-        <prompt>Scissors cut the paper. You won!</prompt>
+        <prompt>Scissors cuts the paper. You won!</prompt>
         <goto next="#newround"/>
       <elseif cond="systemfunnyAnswer == 'fire' &amp;&amp; userAnswer == 'rock'"/>
         <prompt>The rock melts. I won!</prompt>
@@ -256,10 +256,10 @@
         <prompt>Spock vaporizes the rock. I won!</prompt>
         <goto next="#newround"/>
       <elseif cond="userhardAnswer == 'paper' &amp;&amp; systemhardAnswer == 'scissors'"/>
-        <prompt>Scissors cut the paper. I won!</prompt>
+        <prompt>Scissors cuts the paper. I won!</prompt>
         <goto next="#newround"/>
       <elseif cond="systemhardAnswer == 'paper' &amp;&amp; userhardAnswer == 'scissors'"/>
-        <prompt>Scissors cut the paper. You won!</prompt>
+        <prompt>Scissors cuts the paper. You won!</prompt>
         <goto next="#newround"/>
       <elseif cond="systemhardAnswer == 'paper' &amp;&amp; userhardAnswer == 'lizard'"/>
         <prompt>The lizard eats the paper. You won!</prompt>
